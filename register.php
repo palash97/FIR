@@ -1,3 +1,4 @@
+<?php include('register_db.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,17 +22,17 @@
                 <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Please fill your details</b></p>
             </div>
 
-            <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;">
+            <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;" method="post" action="register.php">
                 <div class="cols">
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Name:</label>
-                                <input  id = "name" class="inputs" type="text" name="name">
+                                <input  id = "name" class="inputs" type="text" name="name" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                             <div class="input-group token" style="margin-top: 5px;">
                                 <label class="labels">Email ID:</label>
-                                <input id="email" class="inputs" style="" type="email" name="email">
+                                <input id="email" class="inputs" style="" type="email" name="email" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -39,7 +40,7 @@
                                 <label class="labels">Gender :</label>
                                 <div id="gender">
                                         <div class="rows soc">
-                                            <select style="height:34px;width:101px;" class="gender-button" name="">    
+                                            <select style="height:34px;width:101px;" class="gender-button" name="gender" required>    
                                                 <option value="male">Male</option>
                                                 <option value="female" selected>Female</option>
                                             </select>
@@ -49,35 +50,42 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Nationality:</label>
-                                <input  id = "nationality" class="inputs" type="text" name="nationality">
+                                <input  id = "nationality" class="inputs" type="text" name="nationality" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Date of Birth:</label>
-                                <input  id = "dob" class="inputs" type="date" name="dob">
+                                <input  id = "dob" class="inputs" type="date" name="dob" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Username:</label>
-                                <input  id = "username" class="inputs" type="text" name="username">
+                                <input  id = "username" class="inputs" type="text" name="username" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Password:</label>
-                                <input  id = "password" class="inputs" type="password" name="password">
+                                <input  id = "password" class="inputs" type="password" name="password" required>
+                                <p class="please_fill">Please fill this field</p>
+                            </div>
+                    </div>
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <label class="labels">Re-enter your password:</label>
+                                <input  id = "password" class="inputs" type="password" name="password2" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Contact no.:</label>
-                                <input  id = "contact" class="inputs" type="tel" name="contact">
+                                <input  id = "contact" class="inputs" type="tel" name="contact" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -87,7 +95,7 @@
                                 <p class="please_fill">Please fill this field</p>
                     </div>
 
-                    <div class="input-group" style="">
+                    <!-- <div class="input-group" style="">
                                 <label class="labels">Your Photo:</label>
                                 <div class="rows">
                                     <div class="upload-btn-wrapper">
@@ -98,10 +106,10 @@
                                 </div>
                                 
                                 <span id="show" style="font-size:12px;color:rgba(22, 160, 133, 1);"></span>
-                    </div>
+                    </div> -->
                     <div class="input-group" style="">
                     <div class="rows">
-                           <input type="submit" value="Submit">
+                           <input type="submit" value="Submit" name="submit">
                     </div>
                     </div>
 

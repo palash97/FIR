@@ -1,4 +1,4 @@
-<?php include('register_db.php') ?>
+<?php include('register_db.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +24,7 @@
 
             <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;" method="post" action="register.php">
                 <div class="cols">
+                    <?php include('errors.php'); ?>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Name:</label>
@@ -95,18 +96,7 @@
                                 <p class="please_fill">Please fill this field</p>
                     </div>
 
-                    <!-- <div class="input-group" style="">
-                                <label class="labels">Your Photo:</label>
-                                <div class="rows">
-                                    <div class="upload-btn-wrapper">
-                                      <button class="btn">Upload</button>
-                                      <input onchange="display()" type="file" id="myfile" name="myfile" accept="image/*" / >
-                                    </div>
-                                    <span style="font-size:16px;color:rgba(149, 165, 166, 1);margin-left:10px;margin-top: 5px;">(Image name should be same as the username)</span>
-                                </div>
-                                
-                                <span id="show" style="font-size:12px;color:rgba(22, 160, 133, 1);"></span>
-                    </div> -->
+                    
                     <div class="input-group" style="">
                     <div class="rows">
                            <input type="submit" value="Submit" name="submit">

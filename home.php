@@ -1,3 +1,4 @@
+<?php include('login_db.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 input[type=text], input[type=password] {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -140,24 +141,21 @@ span.psw {
 
 	<div>
  		
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;padding: 15px;margin:20px;">(Already Registered) Login</button>
-
-        <div id="id01" class="modal">
-  
-		  <form class="modal-content animate" action="action_page.php" method="post">
-		    <!-- <div class="imgcontainer">
-		      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-		      <img src="fir.jpg" alt="Avatar" class="avatar">
-		    </div> -->
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;padding: 15px;margin:20px;">(Already Registered) Login</button>
+    <?php include('login_errors.php'); ?>
+    <div id="id01" class="modal">
+      
+		  <form class="modal-content animate" action="home.php" method="post">
 
 		    <div class="container">
+          <!-- <?php include('login_errors.php'); ?> -->
 		      <label for="uname"><b>Username</b></label>
 		      <input type="text" placeholder="Enter Username" name="uname" required>
 
 		      <label for="psw"><b>Password</b></label>
 		      <input type="password" placeholder="Enter Password" name="psw" required>
 		        
-		      <button type="submit" name="submit">Login</button>
+		      <button type="submit" name="login_submit">Login</button>
 		    </div>
 		  </form>
 		</div>

@@ -1,73 +1,75 @@
 <?php
+
 session_start();
 
-// initializing variables
-$name = "";
-$email    = "";
-$nationality    = "";
-$dob= "";
-$username    = "";
-$password    = "";
-$contact    = "";
-$address    = "";
-$myfile    = "";
-$password2 = "";
-$gender = "";
+$db = mysqli_connect("localhost", "root", "palash", "FIR");
 $errors = array(); 
 
-// connect to the database
-$db = mysqli_connect('localhost', 'root', 'palash', 'FIR');
-
-// REGISTER USER
 if (isset($_POST['submit'])) {
-  // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
+  $password = mysqli_real_escape_string($db, $_POST['password']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
-  $password= mysqli_real_escape_string($db, $_POST['password']);
-  $password2 = mysqli_real_escape_string($db, $_POST['password2']);
-  $nationality = mysqli_real_escape_string($db, $_POST['nationality']);
-  $dob= mysqli_real_escape_string($db, $_POST['dob']);
-  $gender= mysqli_real_escape_string($db, $_POST['gender']);
-  //$myfile = mysqli_real_escape_string($db, $_POST['myfile']);
-  $contact = mysqli_real_escape_string($db, $_POST['contact']);
   $name = mysqli_real_escape_string($db, $_POST['name']);
+  $gender = mysqli_real_escape_string($db, $_POST['gender']);
   $address = mysqli_real_escape_string($db, $_POST['address']);
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password)) { array_push($errors, "Password is required"); }
-  if ($password != $password2) {
-	array_push($errors, "The two passwords do not match");
-  }
+  $nationality = mysqli_real_escape_string($db, $_POST['nationality']);
+  $password2 = mysqli_real_escape_string($db, $_POST['password2']);
+  $contact = mysqli_real_escape_string($db, $_POST['contact']);
+  $dob = mysqli_real_escape_string($db, $_POST['dob']);
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
+
   $user_check_query = "SELECT * FROM Registration WHERE Username='$username' OR Email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
 
-  if ($user) { // if user exists
+
+  if ($user) { 
     if ($user['Username'] === $username) {
       array_push($errors, "Username already exists");
     }
 
     if ($user['Email'] === $email) {
-      array_push($errors, "email already exists");
+      array_push($errors, "Email already exists");
     }
   }
+  
 
-  // Finally, register user if there are no errors in the form
+  if ($password != $password2) {
+  array_push($errors, "The two passwords do not match");
+  }
+
+
   if (count($errors) == 0) {
-    $password = md5($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO Registration (Username,Email, Password , Name , Address , Gender , Nationality , DOB , Contact ) 
-          VALUES('$username', '$email', '$password' , '$name', '$address' , '$gender' , '$nationality' , '$dob' , '$contact')";
-    mysqli_query($db, $query);
-    $_SESSION['username'] = $username;
-    $_SESSION['success'] = "You are now logged in";
-    //header('location: home.php');
-  }
-  else{
-    echo "count>0";
-  }
+  
+  $password = md5($password);
+
+  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB) 
+          VALUES('$username','$password','$email','$name','$gender','$address','$nationality','$contact','$dob')";
+  $result = mysqli_query($db, $query);
+  if ( false===$result ) {
+     printf("error: %s\n", mysqli_error($db));
+   }
+
+   }
+
+   $_SESSION['username'] = $name;
+   $_SESSION['success'] = "You are now logged in";
+   header('location: userpage.php');
+
+
+
+   
+
 }
+
+
+
+
+
+
+
+
+
+
+
+?>

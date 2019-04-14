@@ -52,7 +52,8 @@ if (isset($_POST['submit'])) {
 
    }
 
-   $_SESSION['username'] = $name;
+   $_SESSION['name'] = $name;
+   $_SESSION['username'] = $username;
    $_SESSION['success'] = "You are now logged in";
    header('location: userpage.php');
 

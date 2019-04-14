@@ -1,4 +1,13 @@
-<?php include('login_db.php'); ?>
+<?php 
+include('login_db.php'); 
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    unset($_SESSION['name']);
+    unset($_GET['logout']);
+  }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,6 +141,10 @@ span.psw {
 <body>
     <div class="heading">POLICE FI<span style="font-size: 80px;color : #D3D3D3">R</span>EGISTRATION</div>
 
+<?php 
+if(!isset($_SESSION['username'])){
+
+?>
 
     <div class="register">
 
@@ -165,6 +178,18 @@ span.psw {
 
 	</div>
 
+<?php } ?>
+
+<?php 
+  if(isset($_SESSION['username'])){
+?>
+   <div class="logout" style="padding: 20px">
+
+      <a href="home.php?logout='1'"><button type="button" class="button" style="height:50px ; width: 200px;">User logout</button></a>
+  </div>
+
+<?php
+ } ?>
 
 
 

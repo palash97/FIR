@@ -20,13 +20,17 @@
 
 
 <div class="mewfir" style="padding: 20px;">
+	    <div class="rows" style="justify-content: space-between;">
 	    <?php 
 		session_start();
 		if(isset($_SESSION['username'])){
-			echo 'Welcome';
-			echo ' ' . $_SESSION['username'];
-
 		?>
+		<div><h1>Welcome <?=$_SESSION['name']?></h1></div>
+		<div class="logout" style="">
+
+            <a href="home.php?logout='1'"><button type="button" class="button" style="height:50px ; width: 200px;">User logout</button></a>
+        </div>
+        </div>
         <hr>
     	<a target="_blank" href="newfir.php"><button type="button" class="button" style="height:50px ; width: 200px;">Launch New FIR</button></a>
  </div>

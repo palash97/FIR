@@ -1,3 +1,4 @@
+<?php include('firsubmit.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@
                 <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Please fill your details</b></p>
             </div>
 
-            <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;" method="post" action="register.php">
+            <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;" method="post" action="newfir.php">
                 <div class="rows">
                 <div class="cols">
                     <div class="head margin">
@@ -30,14 +31,14 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Complainer Name:</label>
-                                <input  id = "name" class="inputs" type="text" name="name" required>
+                                <input  id = "name" class="inputs" type="text" name="campname" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Complainer Contact no::</label>
-                                <input  id = "tel" class="inputs" type="tel" name="tel" required>
+                                <input  id = "tel" class="inputs" type="tel" name="comptel" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -45,7 +46,7 @@
                                 <label class="labels">Gender :</label>
                                 <div id="gender">
                                         <div class="rows soc">
-                                            <select style="height:34px;width:101px;" class="gender-button" name="gender" required>    
+                                            <select style="height:34px;width:101px;" class="gender-button" name="compgender" required>    
                                                 <option value="male">Male</option>
                                                 <option value="female" selected>Female</option>
                                             </select>
@@ -55,10 +56,28 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Complainer Nationality:</label>
-                                <input  id = "nationality" class="inputs" type="text" name="nationality" required>
+                                <input  id = "nationality" class="inputs" type="text" name="compnationality" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
+
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <label class="labels">Complainer Aadhar:</label>
+                                <input  id = "nationality" class="inputs" type="text" name="compaadhar" required>
+                                <p class="please_fill">Please fill this field</p>
+                            </div>
+                    </div>
+
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <label class="labels">Complainer DOB:</label>
+                                <input  id = "nationality" class="inputs" type="date" name="compdob" required>
+                                <p class="please_fill">Please fill this field</p>
+                            </div>
+                    </div>
+
+
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Complainer State:</label>
@@ -83,7 +102,7 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Neareste Police Station:</label>
-                                <input  id = "station" class="inputs" type="text" name="station" required>
+                                <input  id = "station" class="inputs" type="text" name="pstation" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -117,6 +136,16 @@
                                 <textarea id="accaddress" maxlength="400" class="inputs" style="height: 167px;padding: 5px;" type="text" name="accaddress"></textarea>
                                 <p class="please_fill">Please fill this field</p>
                     </div>
+
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <label class="labels">Accused DOB:</label>
+                                <input  id = "nationality" class="inputs" type="date" name="accdob" required>
+                                <p class="please_fill">Please fill this field</p>
+                            </div>
+                    </div>
+
+
                     </div>
 
 
@@ -127,7 +156,7 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Crime Time:</label>
-                                <input  id = "time" class="inputs" type="time" name="time" required>
+                                <input  id = "time" class="inputs" type="time" name="crimetime" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -162,7 +191,7 @@
 
                     <div class="input-group" style="width: 50%;">
                     <div class="rows">
-                           <input type="submit" value="Submit" name="submit">
+                           <input type="submit" value="Submit" name="submit__">
                     </div>
                     </div>
             </form>

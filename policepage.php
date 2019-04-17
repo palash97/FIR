@@ -18,7 +18,7 @@
 <body>
 
 
-<div class="mewfir" style="padding: 20px;">
+<div class="newfir" style="padding: 20px;">
 	    <div class="rows" style="justify-content: space-between;">
 	    <?php 
 		session_start();
@@ -31,8 +31,7 @@
         </div>
         </div>
         <hr>
-    	<a target="_blank" href="newfir.php"><button type="button" class="button" style="height:50px ; width: 200px;">Launch New FIR</button></a>
-    	<a target="_blank" href="listfir.php"><button type="button" class="button" style="height:50px ; width: 200px;">View all Filed FIR</button></a>
+    	<a target="_blank" href="listfir.php"><button type="button" class="button" style="height:50px ; width: 200px;">View all FIR</button></a>
  </div>
 
 </body>

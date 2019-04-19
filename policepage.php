@@ -31,7 +31,7 @@
         </div>
         </div>
         <hr>
-    	<a target="_blank" href="listfir.php"><button type="button" class="button" style="height:50px ; width: 200px;">View all FIR</button></a>
+    	<a target="_blank" href="police_update_fir.php"><button type="button" class="button" style="height:50px ; width: 200px;">View all FIR</button></a>
  </div>
 
 </body>

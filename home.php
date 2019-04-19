@@ -149,6 +149,7 @@ if(!isset($_SESSION['username'])){
     <div class="register">
 
     	<a target="_blank" href="register.php"><button type="button" class="button" style="height:50px ; width: 200px;">(New User) Register &gt</button></a>
+      <a target="_blank" href="pregister.php"><button type="button" class="button" style="height:50px ; width: 200px;">(New Police) Register &gt</button></a>
 	</div>
 
 
@@ -167,6 +168,8 @@ if(!isset($_SESSION['username'])){
 
 		      <label for="psw"><b>Password</b></label>
 		      <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="police"><b>Police</b></label>
+          <input type="checkbox" placeholder="ispolice" name="police" >
 		        
 		      <button type="submit" name="login_submit">Login</button>
 		    </div>

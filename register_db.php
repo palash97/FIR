@@ -1,8 +1,10 @@
+<?php require_once("mysqli_connect.php");?>
+
 <?php
 
 session_start();
 
-$db = mysqli_connect("localhost", "root", "palash", "FIR");
+// $db = mysqli_connect("localhost", "root", "palash", "FIR");
 $errors = array(); 
 
 if (isset($_POST['submit'])) {
@@ -55,6 +57,7 @@ if (isset($_POST['submit'])) {
    $_SESSION['name'] = $name;
    $_SESSION['username'] = $username;
    $_SESSION['success'] = "You are now logged in";
+   $_SESSION['police'] = FALSE;
    header('location: userpage.php');
 
 

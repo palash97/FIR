@@ -1,8 +1,9 @@
+<?php require_once("mysqli_connect.php");?>
 <?php
 
 session_start();
 
-$db = mysqli_connect("localhost", "root", "palash", "FIR");
+//$db = mysqli_connect("localhost", "root", "palash", "FIR");
 $errors = array(); 
 
 if (isset($_POST['submit'])) {
@@ -16,7 +17,7 @@ if (isset($_POST['submit'])) {
   $password2 = mysqli_real_escape_string($db, $_POST['password2']);
   $contact = mysqli_real_escape_string($db, $_POST['contact']);
   $dob = mysqli_real_escape_string($db, $_POST['dob']);
-
+  $ispolice = TRUE;
 
   $user_check_query = "SELECT * FROM Registration WHERE Username='$username' OR Email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
@@ -43,8 +44,8 @@ if (isset($_POST['submit'])) {
   
   $password = md5($password);
 
-  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB) 
-          VALUES('$username','$password','$email','$name','$gender','$address','$nationality','$contact','$dob')";
+  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB, Police) 
+          VALUES('$username','$password','$email','$name','$gender','$address','$nationality','$contact','$dob', '$ispolice')";
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
      printf("error: %s\n", mysqli_error($db));
@@ -56,7 +57,7 @@ if (isset($_POST['submit'])) {
    $_SESSION['username'] = $username;
    $_SESSION['success'] = "You are now logged in";
    $_SESSION['police'] = TRUE ;
-   header('location: policepage.php');
+   //header('location: policepage.php');
 
 
 

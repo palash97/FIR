@@ -22,7 +22,7 @@
                 <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Please fill your details</b></p>
             </div>
 
-            <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;" method="post" action="register.php">
+            <form class="margin"  id="form1" class="form1"  style="margin-top: 25px;padding-bottom: 25px;" method="post" action="pregister.php">
                 <div class="cols">
                     <?php include('errors.php'); ?>
                     <div class="rows" style="">

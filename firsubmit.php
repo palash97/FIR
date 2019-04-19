@@ -1,14 +1,10 @@
+<?php require_once('mysqli_connect.php');?>
+
 <?php
 
 session_start();
 
-$db = mysqli_connect("localhost", "root", "saket3433", "FIR");
-if (mysqli_connect_errno()) {
-  printf("Connect failed: %s\n", mysqli_connect_error());
-  exit();
-} else {
-  //printf("Connect Passed");
-}
+
 if (isset($_POST['submit__'])) {
   $compname = mysqli_real_escape_string($db, $_POST['compname']);
   $comptel = mysqli_real_escape_string($db, $_POST['comptel']);
@@ -37,43 +33,59 @@ if (isset($_POST['submit__'])) {
   
    
 
-  // $user_check_query = "SELECT * FROM Registration WHERE Username= $_SESSION['username']  LIMIT 1";
-  // $result = mysqli_query($db, $user_check_query);
-  // $user = mysqli_fetch_assoc($result);
-
   
-  $query = "INSERT INTO Accused (AcName,AcAddress, AcDOB, AcContact) 
-          VALUES('$accname','$accaddress','$accdob','$accnumber')";
+  $query = "INSERT INTO Reports (FIRDate, Section, Username) 
+          VALUES( '$crimedate',NULL, '$username')";
+  $result = mysqli_query($db, $query);
+  if ( false===$result ) {
+     printf("error:1 %s\n", mysqli_error($db));
+  }
+
+  $query = "SELECT MAX(FIRNo) FROM  Reports";
+  $result = mysqli_query($db, $query);
+  if ( false===$result ) {
+     printf("error:2 %s\n", mysqli_error($db));
+  }
+  $firset = mysqli_fetch_assoc($result);
+  $firno =mysqli_real_escape_string($db, $firset['MAX(FIRNo)']);
+  printf("This is fir, %d    " , $firno);
+
+
+
+  $query = "INSERT INTO Accused (AcName,AcAddress, AcDOB, AcContact, FIRNo) 
+          VALUES('$accname','$accaddress','$accdob','$accnumber', '$firno')";
 
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
-     printf("error: %s\n", mysqli_error($db));
+     printf("error:3 %s\n", mysqli_error($db));
   }
 
 
-  $query2 = "INSERT INTO Complainant (CompName,Username,CompAddress,CompNationality,CompDOB,CompAadhar,CompContact,CompGender) 
-          VALUES('$compname','$username','$compaddress','$compnationality','$compdob','$compaadhar','$comptel','$compgender')";
+  $query2 = "INSERT INTO Complainant (CompName,Username,CompAddress,CompNationality,CompDOB,CompAadhar,CompContact,CompGender, FIRNo) 
+          VALUES('$compname','$username','$compaddress','$compnationality','$compdob','$compaadhar','$comptel','$compgender', $firno)";
   $result2 = mysqli_query($db, $query2);
   if ( false===$result2 ) {
-     printf("error: %s\n", mysqli_error($db));
+     printf("error: 4%s\n", mysqli_error($db));
   }
 
 
-  $query = "INSERT INTO Crimes (CrimeType,CrimeDescription, CrimeDate, CrimePlace, CrimeEvidence) 
-          VALUES('','$crimedescription','$crimedate','$crimelocation', '$crimeevidence')";
+  $query = "INSERT INTO Crimes (CrimeType,CrimeDescription, CrimeDate, CrimePlace, CrimeEvidence, FIRNo) 
+          VALUES('','$crimedescription','$crimedate','$crimelocation', '$crimeevidence','$firno')";
 
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
-     printf("error: %s\n", mysqli_error($db));
+     printf("error: 5%s\n", mysqli_error($db));
   }
 
-  $query = "INSERT INTO Reports (FIRDate, Section, PSCode) 
-          VALUES( '$crimedate',NULL,'$pstation')";
+
+  $query = "INSERT INTO PoliceStation (PSCode,PState, PDistrict,PIN, Head, FIRNo) 
+          VALUES('$pstation',NULL,NULL,NULL, NULL , '$firno')";
 
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
-     printf("error: %s\n", mysqli_error($db));
+     printf("error: 6%s\n", mysqli_error($db));
   }
+  //echo "Sab first class";
 
    //header('location: userpage.php');   
 

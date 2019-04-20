@@ -31,7 +31,13 @@
             </div>
             
            
-           <?php while($fir = mysqli_fetch_assoc($result)) { ?>
+           <?php while($fir = mysqli_fetch_assoc($result)) { 
+           $nfir = $fir['FIRNo'];
+           $query1 = "SELECT * FROM  Accused WHERE FIRNo ='$nfir'";
+           $result1 = mysqli_query($db, $query1);
+           $accused = mysqli_fetch_assoc($result1);
+
+            ?>
 
            <div class="rows">
 
@@ -56,6 +62,26 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <input  id = "accname" class="inputs" type="text" name="accname"  value="<?php echo $fir['FIRDate'] ?>" required>
+                            </div>
+                    </div>
+                </div>
+                <div class="cols" style="padding-left: 50px;">
+                    <div class="head margin">
+                            <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Accused Name</b></p>
+                    </div>
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <input  id = "accname" class="inputs" type="text" name="accname"  value="<?php echo $accused['AcName'] ?>" required>
+                            </div>
+                    </div>
+                </div>
+                <div class="cols" style="padding-left: 50px;">
+                    <div class="head margin">
+                            <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Accused Contact</b></p>
+                    </div>
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <input  id = "accname" class="inputs" type="text" name="accname"  value="<?php echo $accused['AcContact'] ?>" required>
                             </div>
                     </div>
                 </div>

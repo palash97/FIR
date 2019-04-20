@@ -34,8 +34,15 @@ $rows = mysqli_num_rows($result);
     <div class="head margin">
                 <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>All the FIR</b></p>
     </div>
-    <?php while($fir = mysqli_fetch_assoc($result)) { ?>
-           <div class="" style="">
+           <?php while($fir = mysqli_fetch_assoc($result)) {
+           $user = $fir['Username'];
+           $query1 = "SELECT * FROM  Complainant WHERE Username ='$user'";
+           $result1 = mysqli_query($db, $query1);
+           $complainant = mysqli_fetch_assoc($result1);
+           
+           ?>
+
+           <div class="rows">
 
             <div class="margin" class="form1"  style="margin-top: 25px;padding-bottom: 25px">
             	<div class="rows">
@@ -61,6 +68,26 @@ $rows = mysqli_num_rows($result);
                             </div>
                     </div>
                 </div>
+                <div class="cols" style="padding-left: 50px;">
+                    <div class="head margin">
+                            <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Complainant Name</b></p>
+                    </div>
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <input  id = "accname" class="inputs" type="text" name="accname"  value="<?php echo $complainant['CompName'] ?>" required>
+                            </div>
+                    </div>
+                </div>
+                <div class="cols" style="padding-left: 50px;">
+                    <div class="head margin">
+                            <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Compalinant Contact</b></p>
+                    </div>
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <input  id = "accname" class="inputs" type="text" name="accname"  value="<?php echo $complainant['CompContact'] ?>" required>
+                            </div>
+                    </div>
+                </div>
                 </div>
 
                     <div class="input-group" style="width: 50%;">
@@ -75,6 +102,8 @@ $rows = mysqli_num_rows($result);
         </div>
             
 </div>
+
+
     </div>
 
 

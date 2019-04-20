@@ -31,7 +31,7 @@
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Complainer Name:</label>
-                                <input  id = "name" class="inputs" type="text" name="campname" required>
+                                <input  id = "name" class="inputs" type="text" name="compname" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -115,7 +115,7 @@
                     </div>
                     <div class="input-group" style="">
                                 <label class="labels">Complainer Address:</label>
-                                <textarea id="address" maxlength="400" class="inputs" style="height: 167px;padding: 5px;" type="text" name="address"></textarea>
+                                <textarea id="address" maxlength="400" class="inputs" style="height: 167px;padding: 5px;" type="text" name="compaddress"></textarea>
                                 <p class="please_fill">Please fill this field</p>
                     </div>
 

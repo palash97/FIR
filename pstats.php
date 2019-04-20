@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,27 +16,18 @@
 </head>
 <body>
 
+<div class="head margin">
+        <p style="color: rgb(68,68,68,1);font-size: 30px;"><b>Stats</b></p>
+</div>
 
-<div class="newfir" style="padding: 20px;">
-	    <div class="rows" style="justify-content: space-between;">
-	    <?php 
-		session_start();
-		if(isset($_SESSION['username'])) {		
-		?>
-		<div><h1>Welcome <?=$_SESSION['name']?></h1></div>
-		<div class="logout" style="">
+<div style="display: flex;flex-direction: column;">
+	<div  style="padding: 20px; display: flex; flex-direction: row;">
+		<div><button type="button" class="button" style="height:50px ; width: 200px;">Show Stats</button></div>
+        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="firno"></div>
+	</div>
+	
+</div>
 
-            <a href="home.php?logout='1'"><button type="button" class="button" style="height:50px ; width: 200px;">User logout</button></a>
-        </div>
-        </div>
-        <hr>
-    	<a target="_blank" href="police_update_fir.php"><button type="button" class="button" style="height:50px ; width: 200px;">View all FIR</button></a>
-    	<a target="_blank" href="pstats.php"><button type="button" class="button" style="height:50px ; width: 200px;">Show Stats</button></a>
- </div>
 
 </body>
 </html>
-
-<?php
-}
-?>

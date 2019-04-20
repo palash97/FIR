@@ -38,12 +38,15 @@
                             </div>
                     </div>
                     <div class="input-group" style="">
-                                <label class="labels">Gender :</label>
+                                <label class="labels">Police Station :</label>
                                 <div id="gender">
                                         <div class="rows soc">
-                                            <select style="height:34px;width:101px;" class="gender-button" name="gender" required>    
-                                                <option value="male">Male</option>
-                                                <option value="female" selected>Female</option>
+                                            <select style="height:34px;width:101px;" class="gender-button" name="pstation" required>    
+                                                <option value="ps1">PS1</option>
+                                                <option value="ps2" selected>PS2</option>
+                                                <option value="ps3">PS3</option>
+                                                <option value="ps4">PS4</option>
+                                                <option value="ps5">PS5</option>
                                             </select>
                                         </div>
                                 </div>

@@ -99,12 +99,19 @@
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Neareste Police Station:</label>
-                                <input  id = "station" class="inputs" type="text" name="pstation" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
+                    <div class="input-group" style="">
+                                <label class="labels">Police Station :</label>
+                                <div id="gender">
+                                        <div class="rows soc">
+                                            <select style="height:34px;width:101px;" class="gender-button" name="pstation" required>    
+                                                <option value="ps1">PS1</option>
+                                                <option value="ps2" selected>PS2</option>
+                                                <option value="ps3">PS3</option>
+                                                <option value="ps4">PS4</option>
+                                                <option value="ps5">PS5</option>
+                                            </select>
+                                        </div>
+                                </div>
                     </div>
                     <div class="input-group" style="">
                                 <label class="labels">Complainer Address:</label>

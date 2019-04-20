@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
   $password = mysqli_real_escape_string($db, $_POST['password']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $name = mysqli_real_escape_string($db, $_POST['name']);
-  $gender = mysqli_real_escape_string($db, $_POST['gender']);
+  $pstation = mysqli_real_escape_string($db, $_POST['pstation']);
   $address = mysqli_real_escape_string($db, $_POST['address']);
   $nationality = mysqli_real_escape_string($db, $_POST['nationality']);
   $password2 = mysqli_real_escape_string($db, $_POST['password2']);
@@ -44,8 +44,8 @@ if (isset($_POST['submit'])) {
   
   $password = md5($password);
 
-  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB, Police) 
-          VALUES('$username','$password','$email','$name','$gender','$address','$nationality','$contact','$dob', '$ispolice')";
+  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB, Police, PStation) 
+          VALUES('$username','$password','$email','$name',NULL,'$address','$nationality','$contact','$dob', '$ispolice', '$pstation')";
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
      printf("error: %s\n", mysqli_error($db));

@@ -30,7 +30,6 @@ $crimes = mysqli_fetch_assoc($result1);
 $accused = mysqli_fetch_assoc($result2);
 $result3 = mysqli_query($db, $query3);
 $policestation = mysqli_fetch_assoc($result3);
-// print_r($result);
 ?>
 
 

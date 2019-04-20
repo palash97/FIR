@@ -20,20 +20,24 @@
 $query = "SELECT * FROM  Reports ";
 $result = mysqli_query($db, $query);
 $rows = mysqli_num_rows($result);
+
 ?>
 
 
 <div id="p1" class="parent_police page1">
-            <div class="head margin">
-                <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>All the FIR</b></p>
-            </div>
+            
             
            
-           <?php while($fir = mysqli_fetch_assoc($result)) { ?>
+           
+<div class="cols" style="justify-content: space-between;">
+    <div>
+    <div class="head margin">
+                <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>All the FIR</b></p>
+    </div>
+    <?php while($fir = mysqli_fetch_assoc($result)) { ?>
+           <div class="" style="">
 
-           <div class="rows">
-
-            <div class="margin" class="form1"  style="margin-top: 25px;padding-bottom: 25px;">
+            <div class="margin" class="form1"  style="margin-top: 25px;padding-bottom: 25px">
             	<div class="rows">
                 <div class="cols">
                     <div class="head margin">
@@ -68,6 +72,9 @@ $rows = mysqli_num_rows($result);
             </div>
             </div>
             <?php } ?>
+        </div>
+            
+</div>
     </div>
 
 

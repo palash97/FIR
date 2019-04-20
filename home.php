@@ -139,7 +139,7 @@ span.psw {
 </style>
 </head>
 <body>
-    <div class="heading">POLICE FI<span style="font-size: 80px;color : #D3D3D3">R</span>EGISTRATION</div>
+    <div class="heading">POLICE <span style="font-size: 80px;color : #D3D3D3">FIR</span>  REGISTRATION</div>
 
 <?php 
 if(!isset($_SESSION['username'])){

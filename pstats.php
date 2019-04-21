@@ -16,15 +16,117 @@
 </head>
 <body>
 
+<?php
+require_once("mysqli_connect.php");
+session_start();
+
+$countfir ="";
+$accusedfir="";
+$sectionfir="";
+$pcrime = "";
+$crimetype = "";
+$pusername = mysqli_real_escape_string($db, $_SESSION['username']);
+$query  = "SELECT PStation FROM Registration WHERE Username = '$pusername'";
+$result = mysqli_query($db, $query);
+$pstation = mysqli_fetch_assoc($result);
+//print_r($pstation);
+$pstation = $pstation['PStation'];
+
+if (isset($_POST['query1'])) {
+    $query1 = "SELECT COUNT(FIRNo) FROM Reports WHERE PStation = '$pstation'";
+    $result1 = mysqli_query($db, $query1);
+    $ans = mysqli_fetch_assoc($result1);
+    //print_r($ans);
+    $countfir = (int)$ans['COUNT(FIRNo)'];
+
+}
+
+if (isset($_POST['query2'])) {
+	$accused = mysqli_real_escape_string($db, $_POST['accused']);
+    $query1 = "SELECT COUNT(FIRNo) FROM Accused WHERE AcName = '$accused'";
+    $result1 = mysqli_query($db, $query1);
+    $ans = mysqli_fetch_assoc($result1);
+    $accusedfir = (int)$ans['COUNT(FIRNo)'];
+}
+
+
+if (isset($_POST['query3'])) {
+	$section = mysqli_real_escape_string($db, $_POST['section']);
+    $query1 = "SELECT COUNT(FIRNo) FROM Reports WHERE Section = '$section'";
+    $result1 = mysqli_query($db, $query1);
+    $ans = mysqli_fetch_assoc($result1);
+    $sectionfir = (int)$ans['COUNT(FIRNo)'];
+}
+
+
+if (isset($_POST['query4'])) {
+	$query1 = "SELECT COUNT(FIRNo) FROM Reports WHERE PStation = '$pstation'";
+    $result1 = mysqli_query($db, $query1);
+    $ans = mysqli_fetch_assoc($result1);
+    $count_fir = (int)$ans['COUNT(FIRNo)'];
+    //printf($count_fir);
+    $query2 = "SELECT COUNT(FIRNo) FROM Reports";
+    $result2 = mysqli_query($db, $query2);
+    $ans2 = mysqli_fetch_assoc($result2);
+    $total_fir = (int)$ans2['COUNT(FIRNo)'];
+    //printf($total_fir);
+    $pcrime = ($count_fir/$total_fir)*100;
+    
+}
+
+if (isset($_POST['query5'])) {
+	$ctype = mysqli_real_escape_string($db, $_POST['ctype2']);
+	echo $ctype;
+	$query1 = "SELECT COUNT(Crimes.FIRNo) FROM  Crimes INNER JOIN Reports ON Crimes.FIRNo = Reports.FIRNo  WHERE CrimeType ='$ctype' AND PStation='$pstation' ";
+    $result1 = mysqli_query($db, $query1);
+    $ans = mysqli_fetch_assoc($result1);
+    //print_r($ans);
+    $crimetype = (int)$ans['COUNT(Crimes.FIRNo)'];  
+}
+
+
+?>
+
+
+
+
 <div class="head margin">
         <p style="color: rgb(68,68,68,1);font-size: 30px;"><b>Stats</b></p>
 </div>
 
 <div style="display: flex;flex-direction: column;">
-	<div  style="padding: 20px; display: flex; flex-direction: row;">
-		<div><button type="button" class="button" style="height:50px ; width: 200px;">Show Stats</button></div>
-        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="firno"></div>
-	</div>
+		<form method="post" action="pstats.php" style="padding: 20px; display: flex; flex-direction: row;">
+		<div><button type="submit" name="query1" class="button" style="height:50px ; width: 200px;">Total FIR's</button></div>
+        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="totalfir" value="<?php echo $countfir ?>"></div>
+        </form>
+        
+
+
+        <form method="post" action="pstats.php" style="padding: 20px; display: flex; flex-direction: row;">
+		<div><button type="submit" name="query2" class="button" style="height:50px ; width: 200px;">No. of FIR's againts</button></div>
+		<div style="padding: 5px;padding-left: 10px;"><input class="inputs" type="text" name="accused" placeholder="Enter Accused Name"></div>
+        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="acname" value="<?php echo $accusedfir ?>"></div>
+        </form>
+
+        <form method="post" action="pstats.php" style="padding: 20px; display: flex; flex-direction: row;">
+		<div><button type="submit" name="query3" class="button" style="height:50px ; width: 200px;">No. of FIR's under</button></div>
+		<div style="padding: 5px;padding-left: 10px;"><input class="inputs" type="text" name="section" placeholder="Enter Section"></div>
+        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="sectionfir" value="<?php echo $sectionfir ?>"></div>
+        </form>
+
+
+        <form method="post" action="pstats.php" style="padding: 20px; display: flex; flex-direction: row;">
+		<div><button type="submit" name="query4" class="button" style="height:50px ; width: 200px;">Percentage Crime</button></div>
+        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="pcrime" value="<?php echo $pcrime ?>"></div>
+        </form>
+
+        <form method="post" action="pstats.php" style="padding: 20px; display: flex; flex-direction: row;">
+		<div><button type="submit" name="query5" class="button" style="height:50px ; width: 200px;">Crimes of :</button></div>
+		<div style="padding: 5px;padding-left: 10px;"><input class="inputs" type="text" name="ctype2" placeholder="Enter Crime Type"></div>
+        <div style="padding: 5px;padding-left: 10px;"><input  id = "name" class="inputs" type="text" name="ctype" value="<?php echo $crimetype ?>"></div>
+        </form>
+
+
 	
 </div>
 

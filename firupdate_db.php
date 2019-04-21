@@ -16,17 +16,15 @@ if (isset($_POST['update'])) {
   $crimeevidence = mysqli_real_escape_string($db, $_POST['evidence']);
   $crimetype = mysqli_real_escape_string($db, $_POST['crimetype']);
   $pscode = mysqli_real_escape_string($db, $_POST['pstation']);
-  
+  $csection = mysqli_real_escape_string($db, $_POST['csection']);
   
   $query = "UPDATE Accused  SET AcName='$accname' , AcAddress='$accaddress', AcDOB = '$accdob', AcContact='$accnumber' WHERE FIRNo = $firno";
 
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
      printf("error: %s\n", mysqli_error($db));
-  }
-
-
-  
+  } else {
+  } 
 
 
   $query = "UPDATE Crimes SET CrimeType='$crimetype' , CrimeDescription = '$crimedescription' , CrimeDate = '$crimedate' , CrimePlace='$crimelocation' , CrimeEvidence='$crimeevidence' WHERE FIRNo = $firno";
@@ -34,15 +32,16 @@ if (isset($_POST['update'])) {
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
      printf("error: %s\n", mysqli_error($db));
+  } else {
   }
 
-
-  // $query = "UPDATE PoliceStation SET PS_username = '$pscode' WHERE $FIRNo = $firno";
-
-  // $result = mysqli_query($db, $query);
-  // if ( false===$result ) {
-  //    printf("error: %s\n", mysqli_error($db));
-  // }
+  $query = "UPDATE Reports  SET Section = '$csection' WHERE FIRNo = $firno";
+  $result = mysqli_query($db, $query);
+  if ( false===$result ) {
+     printf("error: %s\n", mysqli_error($db));
+  } else {
+  }
+  header('location: policepage.php');
 
 }
 

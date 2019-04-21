@@ -1,5 +1,3 @@
-<?php 
-// include('firupdate_db.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +29,7 @@ $crimes = mysqli_fetch_assoc($result1);
 $accused = mysqli_fetch_assoc($result2);
 $result3 = mysqli_query($db, $query3);
 $policestation = mysqli_fetch_assoc($result3);
-// print_r($result);
+
 ?>
 
 
@@ -82,64 +80,7 @@ $policestation = mysqli_fetch_assoc($result3);
                                             </select>
                                         </div>
                                 </div>
-                    </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer Nationality:</label>
-                                <input  id = "nationality" class="inputs" type="text" name="compnationality" value="<?php echo $complainant['CompNationality'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer Aadhar:</label>
-                                <input  id = "nationality" class="inputs" type="text" name="compaadhar" value="<?php echo $complainant['CompAadhar'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer DOB:</label>
-                                <input  id = "nationality" class="inputs" type="date" name="compdob" value="<?php echo $complainant['CompDOB'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-
-
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer State:</label>
-                                <input  id = "state" class="inputs" type="text" name="state" value="<?php echo $complainant['CompCity'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer District:</label>
-                                <input  id = "district" class="inputs" type="text" name="district" value="<?php echo $complainant['CompDistrict'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer City:</label>
-                                <input  id = "city" class="inputs" type="text" name="city" value="<?php echo $complainant['CompCity'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-                    <div class="input-group" style="">
-                                <label class="labels">Nearest Police Station :</label>
-                                <div id="pstation">
-                                        <div class="rows soc">
-                                            <select style="height:34px;width:101px;" class="gender-button" name="pstation" value="<?php echo $policestation['PS_username'] ?>" required>    
-                                                <option value="ps1">PS1</option>
-                                                <option value="ps2" selected>PS2</option>
-                                            </select>
-                                        </div>
-                                </div>
-                    </div>
+                    </div>                
                     <div class="input-group" style="">
                                 <label class="labels">Complainer Address:</label>
                                 <input id="address" class="inputs"  type="text" name="address" value="<?php echo $complainant['CompAddress'] ?>"></input>

@@ -104,11 +104,11 @@
                                 <div id="gender">
                                         <div class="rows soc">
                                             <select style="height:34px;width:101px;" class="gender-button" name="pstation" required>    
-                                                <option value="ps1">PS1</option>
-                                                <option value="ps2" selected>PS2</option>
-                                                <option value="ps3">PS3</option>
-                                                <option value="ps4">PS4</option>
-                                                <option value="ps5">PS5</option>
+                                                <option value="PS1">PS1</option>
+                                                <option value="PS2" selected>PS2</option>
+                                                <option value="PS3">PS3</option>
+                                                <option value="PS4">PS4</option>
+                                                <option value="PS5">PS5</option>
                                             </select>
                                         </div>
                                 </div>

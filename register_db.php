@@ -45,20 +45,22 @@ if (isset($_POST['submit'])) {
   
   $password = md5($password);
 
-  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB) 
-          VALUES('$username','$password','$email','$name','$gender','$address','$nationality','$contact','$dob')";
+  $query = "INSERT INTO Registration (Username,Password,Email,Name,Gender,Address,Nationality,Contact,DOB, Police) 
+          VALUES('$username','$password','$email','$name','$gender','$address','$nationality','$contact','$dob', '0')";
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
      printf("error: %s\n", mysqli_error($db));
-   }
 
    }
 
-   $_SESSION['name'] = $name;
-   $_SESSION['username'] = $username;
-   $_SESSION['success'] = "You are now logged in";
-   $_SESSION['police'] = FALSE;
-   header('location: userpage.php');
+   } else {
+
+     $_SESSION['name'] = $name;
+     $_SESSION['username'] = $username;
+     $_SESSION['success'] = "You are now logged in";
+     $_SESSION['police'] = FALSE;
+     header('location: userpage.php');
+   }
 
 
 

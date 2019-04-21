@@ -34,8 +34,8 @@ if (isset($_POST['submit__'])) {
    
 
   
-  $query = "INSERT INTO Reports (FIRDate, Section, Username) 
-          VALUES( '$crimedate',NULL, '$username')";
+  $query = "INSERT INTO Reports (FIRDate, Section, Username, PStation) 
+          VALUES( '$crimedate',NULL, '$username','$pscode')";
   $result = mysqli_query($db, $query);
   if ( false===$result ) {
      printf("error:1 %s\n", mysqli_error($db));
@@ -85,9 +85,8 @@ if (isset($_POST['submit__'])) {
   if ( false===$result ) {
      printf("error: 6%s\n", mysqli_error($db));
   }
-  //echo "Sab first class";
 
-   //header('location: userpage.php');   
+  header('location: userpage.php');   
 
 }
 

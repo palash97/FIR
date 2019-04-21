@@ -22,6 +22,7 @@ $query = "SELECT * FROM  Complainant WHERE FIRNo = '$firno' ";
 $query1 = "SELECT * FROM  Crimes WHERE FIRNo = $firno";
 $query2 = "SELECT * FROM  Accused WHERE FIRNo = $firno";
 $query3 = "SELECT * FROM  PoliceStation WHERE FIRNo = $firno";
+$query4 = "SELECT * FROM Reports WHERE FIRNo = $firno";
 $result = mysqli_query($db, $query);
 $result1 = mysqli_query($db, $query1);
 $result2 = mysqli_query($db, $query2);
@@ -30,6 +31,9 @@ $crimes = mysqli_fetch_assoc($result1);
 $accused = mysqli_fetch_assoc($result2);
 $result3 = mysqli_query($db, $query3);
 $policestation = mysqli_fetch_assoc($result3);
+
+$result4 = mysqli_query($db, $query4);
+$reports = mysqli_fetch_assoc($result4);
 ?>
 
 
@@ -69,18 +73,7 @@ $policestation = mysqli_fetch_assoc($result3);
                                 <input  id = "tel" class="inputs" type="tel" name="comptel" value="<?php echo $complainant['CompContact'] ?>" required>
                                 <p class="please_fill">Please fill this field</p>
                             </div>
-                    </div>
-                    <div class="input-group" style="">
-                                <label class="labels">Gender :</label>
-                                <div id="gender">
-                                        <div class="rows soc">
-                                            <select style="height:34px;width:101px;" class="gender-button" name="compgender" value="<?php echo $complainant['CompGender'] ?>" required>    
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                        </div>
-                                </div>
-                    </div>
+                    </div>                    
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Complainer Nationality:</label>
@@ -104,40 +97,8 @@ $policestation = mysqli_fetch_assoc($result3);
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
-
-
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer State:</label>
-                                <input  id = "state" class="inputs" type="text" name="state" value="<?php echo $complainant['CompCity'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer District:</label>
-                                <input  id = "district" class="inputs" type="text" name="district" value="<?php echo $complainant['CompDistrict'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Complainer City:</label>
-                                <input  id = "city" class="inputs" type="text" name="city" value="<?php echo $complainant['CompCity'] ?>" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
-                    <div class="input-group" style="">
-                                <label class="labels">Nearest Police Station :</label>
-                                <div id="pstation">
-                                        <div class="rows soc">
-                                            <select style="height:34px;width:101px;" class="gender-button" name="pstation" value="<?php echo $policestation['PS_username'] ?>" required>    
-                                                <option value="ps1">PS1</option>
-                                                <option value="ps2" selected>PS2</option>
-                                            </select>
-                                        </div>
-                                </div>
-                    </div>
+                    
+                    
                     <div class="input-group" style="">
                                 <label class="labels">Complainer Address:</label>
                                 <input id="address" class="inputs"  type="text" name="address" value="<?php echo $complainant['CompAddress'] ?>"></input>
@@ -152,14 +113,14 @@ $policestation = mysqli_fetch_assoc($result3);
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Accused Name:</label>
-                                <input  id = "accname" class="inputs" type="text" name="accname" value="<?php echo $accused['AcName'] ?>" required>
+                                <input  id = "accname" class="inputs" type="text" name="accname" value="<?php echo $accused['AcName'] ?>" >
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Accused Contact no:</label>
-                                <input  id = "accnumber" class="inputs" type="text" name="accnumber"  value="<?php echo $accused['AcContact'] ?>" required>
+                                <input  id = "accnumber" class="inputs" type="text" name="accnumber"  value="<?php echo $accused['AcContact'] ?>" >
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -172,7 +133,7 @@ $policestation = mysqli_fetch_assoc($result3);
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Accused DOB:</label>
-                                <input  id = "nationality" class="inputs" type="date" name="accdob" value="<?php echo $accused['AcDOB'] ?>" required>
+                                <input  id = "nationality" class="inputs" type="date" name="accdob" value="<?php echo $accused['AcDOB'] ?>" >
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -188,14 +149,14 @@ $policestation = mysqli_fetch_assoc($result3);
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Crime Time:</label>
-                                <input  id = "time" class="inputs" type="time" name="crimetime" value="<?php echo $crimes['CrimeTime'] ?>" required>
+                                <input  id = "time" class="inputs" type="time" name="crimetime" value="<?php echo $crimes['CrimeTime'] ?>">
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Crime Date:</label>
-                                <input  id = "crimedate" class="inputs" type="date" name="crimedate" value="<?php echo $crimes['CrimeDate'] ?>" required>
+                                <input  id = "crimedate" class="inputs" type="date" name="crimedate" value="<?php echo $crimes['CrimeDate'] ?>" >
                                 <p class="please_fill">Please fill this field</p>
                             </div>
                     </div>
@@ -217,6 +178,12 @@ $policestation = mysqli_fetch_assoc($result3);
                     <div class="input-group" style="">
                                 <label class="labels">Crime Type:</label>
                                 <input id="crimetype" class="inputs" type="text" name="crimetype"></input>
+                                <p class="please_fill">Please fill this field</p>
+                    </div>
+
+                    <div class="input-group" style="">
+                                <label class="labels">Crime Section:</label>
+                                <input id="crimetype" class="inputs" type="text" name="csection"></input>
                                 <p class="please_fill">Please fill this field</p>
                     </div>
 

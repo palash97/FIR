@@ -10,7 +10,7 @@ if (isset($_POST['login_submit'])) {
   } else {
     $ispolice = FALSE;
   }
-  printf($_POST['police']);
+  //printf($_POST['police']);
   if (empty($username)) {
     array_push($login_errors, "Username is required");
   }

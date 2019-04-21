@@ -27,7 +27,7 @@
 		<div><h1>Welcome <?=$_SESSION['name']?></h1></div>
 		<div class="logout" style="">
 
-            <a href="home.php?logout='1'"><button type="button" class="button" style="height:50px ; width: 200px;">User logout</button></a>
+            <a href="home.php?logout='1'"><button type="button" class="button" style="height:50px ; width: 200px;">Police Logout</button></a>
         </div>
         </div>
         <hr>

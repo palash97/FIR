@@ -17,18 +17,18 @@
 
 <?php require_once('mysqli_connect.php'); 
 $firno = $_GET['fir'];
-$query = "SELECT * FROM  Complainant WHERE FIRNo = '$firno' ";
-$query1 = "SELECT * FROM  Crimes WHERE FIRNo = $firno";
-$query2 = "SELECT * FROM  Accused WHERE FIRNo = $firno";
-$query3 = "SELECT * FROM  PoliceStation WHERE FIRNo = $firno";
+$query = "DELETE  FROM Complainant WHERE FIRNo = '$firno' ";
+$query1 = "DELETE FROM  Crimes WHERE FIRNo = $firno";
+$query2 = "DELETE FROM  Accused WHERE FIRNo = $firno";
+$query3 = "DELETE  FROM  Reports WHERE FIRNo = $firno";
+$query4 = "DELETE  FROM  PoliceStation WHERE FIRNo = $firno";
 $result = mysqli_query($db, $query);
 $result1 = mysqli_query($db, $query1);
 $result2 = mysqli_query($db, $query2);
-$complainant = mysqli_fetch_assoc($result);
-$crimes = mysqli_fetch_assoc($result1);
-$accused = mysqli_fetch_assoc($result2);
 $result3 = mysqli_query($db, $query3);
-$policestation = mysqli_fetch_assoc($result3);
+$result4 = mysqli_query($db, $query4);
+header('location: userpage.php');
+
 
 ?>
 
@@ -127,7 +127,14 @@ $policestation = mysqli_fetch_assoc($result3);
                     <div class="cols" style="padding-left: 50px;">
                     <div class="head margin">
                             <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Crime details</b></p>
-                    </div>                    
+                    </div>
+                    <div class="rows" style="">
+                            <div class="input-group" style="margin-top: 5px;">
+                                <label class="labels">Crime Time:</label>
+                                <input  id = "time" class="inputs" type="time" name="crimetime" value="<?php echo $crimes['CrimeTime'] ?>" required>
+                                <p class="please_fill">Please fill this field</p>
+                            </div>
+                    </div>
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Crime Date:</label>

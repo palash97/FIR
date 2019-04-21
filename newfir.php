@@ -160,13 +160,7 @@
                     <div class="head margin">
                             <p style="color: rgb(68,68,68,1);font-size: 30px;margin-bottom: 0;"><b>Crime details</b></p>
                     </div>
-                    <div class="rows" style="">
-                            <div class="input-group" style="margin-top: 5px;">
-                                <label class="labels">Crime Time:</label>
-                                <input  id = "time" class="inputs" type="time" name="crimetime" required>
-                                <p class="please_fill">Please fill this field</p>
-                            </div>
-                    </div>
+                    
                     <div class="rows" style="">
                             <div class="input-group" style="margin-top: 5px;">
                                 <label class="labels">Crime Date:</label>

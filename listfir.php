@@ -92,6 +92,10 @@
                            <!-- <input href="userviewfir.php" type="submit" value="View Full FIR" name="submit__"> -->
                         <?php echo "<a href='userviewfir.php?fir=$fir[FIRNo]'> View Full FIR </a>"; ?>
                     </div>
+                    <div class="rows">
+                           <!-- <input href="userviewfir.php" type="submit" value="View Full FIR" name="submit__"> -->
+                        <?php echo "<a href='userdeletefir.php?fir=$fir[FIRNo]'> Delete this FIR </a>"; ?>
+                    </div>
                     </div>
             </div>
             </div>

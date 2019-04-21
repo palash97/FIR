@@ -9,7 +9,7 @@ if (isset($_POST['update'])) {
   $accaddress = mysqli_real_escape_string($db, $_POST['accaddress']);
   $accdob = mysqli_real_escape_string($db, $_POST['accdob']);
 
-  $crimetime = mysqli_real_escape_string($db, $_POST['crimetime']);
+  //$crimetime = mysqli_real_escape_string($db, $_POST['crimetime']);
   $crimedate = mysqli_real_escape_string($db, $_POST['crimedate']);
   $crimelocation = mysqli_real_escape_string($db, $_POST['crimelocation']);
   $crimedescription = mysqli_real_escape_string($db, $_POST['crimedescription']);

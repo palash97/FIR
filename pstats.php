@@ -76,7 +76,6 @@ if (isset($_POST['query4'])) {
 
 if (isset($_POST['query5'])) {
 	$ctype = mysqli_real_escape_string($db, $_POST['ctype2']);
-	echo $ctype;
 	$query1 = "SELECT COUNT(Crimes.FIRNo) FROM  Crimes INNER JOIN Reports ON Crimes.FIRNo = Reports.FIRNo  WHERE CrimeType ='$ctype' AND PStation='$pstation' ";
     $result1 = mysqli_query($db, $query1);
     $ans = mysqli_fetch_assoc($result1);
